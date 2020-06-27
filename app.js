@@ -76,6 +76,14 @@ api.get("/list", (req, res) => {
     });
 });
 
-app.listen(4000, () => {
-  console.log("App listening on port 4000!");
+app.get("/", (req, res) => {
+  return res.status(200).send({
+    status_code: 1,
+    results: "歡迎使用 todolist api",
+  });
+});
+
+var server = app.listen(process.env.PORT || 5000, function () {
+  var port = server.address().port;
+  console.log("Express is working on port " + port);
 });
