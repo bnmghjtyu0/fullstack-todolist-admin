@@ -97,11 +97,11 @@ api.post("/signup", bodyParserJSON, (req, res) => {
         .set(saveUser)
         .then(function () {
           console.log("Document successfully written!");
-          return res.status(200).send({
-            status_code: 1,
-            results: "Document successfully written!",
-          });
         });
+      return res.status(200).send({
+        status_code: 1,
+        results: "註冊成功",
+      });
     })
     .catch(function (error) {
       return res.status(200).send({
