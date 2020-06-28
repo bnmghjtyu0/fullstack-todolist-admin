@@ -111,6 +111,23 @@ api.post("/signup", bodyParserJSON, (req, res) => {
     });
 });
 
+api.get("/users", (req, res) => {
+  db.collection("users")
+    .get()
+    .then((querySnapshot) => {
+      const arr = [];
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+        arr.push({
+          ...doc.data()
+        });
+      });
+      return res.status(200).send({
+        status_code: 1,
+        results: arr,
+      });
+    });
+});
 app.get("/", (req, res) => {
   return res.status(200).send({
     status_code: 1,
