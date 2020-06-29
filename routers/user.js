@@ -1,5 +1,5 @@
 const express = require("express");
-
+const { db, fireAuth } = require("../db.js");
 const router = express.Router();
 
 router.get("/users", (req, res) => {

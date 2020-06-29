@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 
 const post = () => {
-  fetch("https://interview-todolist.herokuapp.com/api/signup", {
+  fetch("http://localhost:5000/api/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
