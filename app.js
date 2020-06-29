@@ -17,7 +17,7 @@ app.use(
     secret: "richard superior",
     resave: true,
     saveUninitialized: true,
-    cookie: { secure: true },
+    cookie: { maxAge: 600 * 1000 }, //10分鐘到期
   })
 );
 

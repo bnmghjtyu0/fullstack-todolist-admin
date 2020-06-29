@@ -13,8 +13,10 @@ router.post("/login", bodyParserJSON, function (req, res) {
     .signInWithEmailAndPassword(email, password)
     .then(function (user) {
       console.log("登入成功");
-
-      req.session.uid = user.user.uid;
+      let data = {};
+      data.uid = user.user.uid;
+      // 登入成功，設定 session
+      req.session.userInfo = data;
       return res.status(200).send({
         status_code: 1,
         status_message: "登入成功",
